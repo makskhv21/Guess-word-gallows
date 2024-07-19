@@ -56,6 +56,7 @@ const Keyboard = ({
 	disabled = false,
 }: KeyboardProps) => {
 	return (
+        <>
 		<KeyContainer>
 			{keyboardOptions.map((key) => {
 				const isActive = userLetter.includes(key);
@@ -73,6 +74,8 @@ const Keyboard = ({
 				);
 			})}
 		</KeyContainer>
+        <p className={`${styles.enterMsg}`}>{"Press Enter or Refresh Web Page To Generate a New Word"}</p>
+		</>
 	);
 };
 
