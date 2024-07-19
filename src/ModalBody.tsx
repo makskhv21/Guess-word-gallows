@@ -1,7 +1,7 @@
 import styles from "./App.module.css";
 
-const ModalBody = ({ closeModal }) => {
-	return (
+const ModalBody = ({ closeModal }: {closeModal: any}) => {	
+    return (
 		<div className={`${styles.modalBackground}`}>
 			<div className={`${styles.modalContainer}`}>
 				<div className={`${styles.modalCloseBtn}`}>
