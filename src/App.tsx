@@ -4,6 +4,7 @@ import Drawing from "./Drawing";
 import { foods } from "./foods";
 import TopMessage from "./winLose"
 import WordDisplay from "./WordDisplay";
+import Keyboard, { KeyboardParent } from "./Keyboard";
 
 function App() {
   const [favFood, setFavFood] =  useState(() => {
@@ -12,12 +13,19 @@ function App() {
 
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
+  const incorrectAnswers = guessedLetters.filter(
+    letter => !favFood.includes(letter)
+  );
+
   return (
     <div>
       <Container>
         <TopMessage />
-        <Drawing />
-        <WordDisplay />
+        <Drawing userGuesses={incorrectAnswers.length} />
+        <WordDisplay guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
+        <KeyboardParent>
+          <Keyboard />
+        </KeyboardParent>
       </Container>
     </div>
   )

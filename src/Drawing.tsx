@@ -90,16 +90,17 @@ const RightLeg = styled.div`
     transform-origin: left bottom;
 `
 
-const Drawing = () => {
+type DrawingProps = {
+    userGuesses: number;
+}
+
+const FullBody = [<Head />, <Body />, <LeftArm />, <RightArm />, <LeftLeg />, <RightLeg />]
+
+const Drawing = ({userGuesses}: DrawingProps) => {
     return(
         <DrawingContainer>
             <DrawingHook />
-            <Head />
-            <Body />
-            <LeftArm />
-            <RightArm />
-            <LeftLeg />
-            <RightLeg />
+            {FullBody.slice(0, userGuesses)}
             <DrawingArm />
             <DrawingCenter />
             <DrawingBase />
