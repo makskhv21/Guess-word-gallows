@@ -1,6 +1,34 @@
 import styled from "styled-components";
+import styles from "./Keyboard.module.css";
 
-const keyboardOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+const keyboardOptions = [
+	"a",
+	"b",
+	"c",
+	"d",
+	"e",
+	"f",
+	"g",
+	"h",
+	"i",
+	"j",
+	"k",
+	"l",
+	"m",
+	"n",
+	"o",
+	"p",
+	"q",
+	"r",
+	"s",
+	"t",
+	"u",
+	"v",
+	"w",
+	"x",
+	"y",
+	"z",
+];
 
 export const KeyboardParent = styled.div`
     align-self: stretch;
@@ -9,35 +37,44 @@ export const KeyboardParent = styled.div`
 const KeyContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-    gap: 1rem;
+    gap: 0.5rem;
     font-family: monospace;
     text-align: center;
 `;
 
-const KeyButton = styled.div`
-    width: 100%;
-    border: 3px solid black;
-    background: none;
-    aspect-ratio: 1 / 1;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    color: black;
-    &:hover,
-    &:focus{
-        background-color: #13EEF5;
-    }
-`
-
-const Keyboard = () => {
-    return(
-        <KeyContainer>
-            {keyboardOptions.map((key) => {
-                return <KeyButton key={key}>{key}</KeyButton>
-            })}
-        </KeyContainer>
-    )
+type KeyboardProps = {
+	userLetter: string[];
+	inactiveLetters: string[];
+	disabled?: boolean;
+	addGuessedLetter: (letter: string) => void;
 };
+
+const Keyboard = ({
+	userLetter,
+	inactiveLetters,
+	addGuessedLetter,
+	disabled = false,
+}: KeyboardProps) => {
+	return (
+		<KeyContainer>
+			{keyboardOptions.map((key) => {
+				const isActive = userLetter.includes(key);
+				const isInactive = inactiveLetters.includes(key);
+				return (
+					<button
+						onClick={() => addGuessedLetter(key)}
+						className={`${styles.btn} ${isActive ? styles.active : ""} ${
+							isInactive ? styles.inactive : ""
+						}`}
+						disabled={isActive || isInactive || disabled}
+						key={key}>
+						{key}
+					</button>
+				);
+			})}
+		</KeyContainer>
+	);
+};
+
 
 export default Keyboard;

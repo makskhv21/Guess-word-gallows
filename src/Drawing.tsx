@@ -8,6 +8,9 @@ const DrawingBase = styled.div`
     height: 10px;
     width: 250px;
     background: black;
+    @media (max-height: 780px) {
+		height: 280px;
+	}
 `;
 
 const DrawingCenter = styled.div`
@@ -38,6 +41,11 @@ const Head = styled.div`
     position: absolute;
     top: 50px;
     right: -30px;
+    @media (max-height: 780px) {
+		height: 35px;
+		width: 35px;
+		right: -23px;
+	}
 `
 const Body = styled.div`
     width: 10px;
@@ -46,6 +54,10 @@ const Body = styled.div`
     position: absolute;
     top: 120px;
     right: 0;
+    @media (max-height: 780px) {
+		height: 80px;
+		top: 105px;
+	}
 `
 
 const LeftArm = styled.div`
@@ -56,7 +68,11 @@ const LeftArm = styled.div`
     top: 150px;
     right: 10px;
     rotate: 30deg;
-    transform-origin: right bottom
+    transform-origin: right bottomж
+    @media (max-height: 780px) {
+		width: 80px;
+		top: 130px;
+	}
 `
 
 const RightArm = styled.div`
@@ -68,6 +84,11 @@ const RightArm = styled.div`
     right: -100px;
     rotate: -30deg;
     transform-origin: left bottom;
+    @media (max-height: 780px) {
+		width: 80px;
+		top: 130px;
+		right: -80px;
+	}
 `
 const LeftLeg = styled.div`
     width: 100px;
@@ -78,6 +99,10 @@ const LeftLeg = styled.div`
     right: 0px;
     rotate: -60deg;
     transform-origin: right bottom;
+    @media (max-height: 780px) {
+		width: 80px;
+		top: 170px;
+	}
 `
 const RightLeg = styled.div`
     width: 100px;
@@ -88,13 +113,25 @@ const RightLeg = styled.div`
     right: -90px;
     rotate: 60deg;
     transform-origin: left bottom;
+    @media (max-height: 780px) {
+		width: 80px;
+		top: 170px;
+		right: -70px;
+	}
 `
 
 type DrawingProps = {
     userGuesses: number;
 }
 
-const FullBody = [<Head />, <Body />, <LeftArm />, <RightArm />, <LeftLeg />, <RightLeg />]
+const FullBody = [
+	<Head />,
+	<Body />,
+	<LeftArm />,
+	<RightArm />,
+	<LeftLeg />,
+	<RightLeg />,
+];
 
 const Drawing = ({userGuesses}: DrawingProps) => {
     return(
