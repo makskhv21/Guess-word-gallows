@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import styles from "./Keyboard.module.css";
+import styles from "./App.module.css";
 
 const keyboardOptions = [
 	"a",
@@ -31,7 +31,9 @@ const keyboardOptions = [
 ];
 
 export const KeyboardParent = styled.div`
-    align-self: stretch;
+    display: flex;
+	align-self: stretch;
+	flex-direction: column;
 `
 
 const KeyContainer = styled.div`
@@ -58,23 +60,25 @@ const Keyboard = ({
 	return (
         <>
 		<KeyContainer>
-			{keyboardOptions.map((key) => {
-				const isActive = userLetter.includes(key);
-				const isInactive = inactiveLetters.includes(key);
-				return (
-					<button
-						onClick={() => addGuessedLetter(key)}
-						className={`${styles.btn} ${isActive ? styles.active : ""} ${
-							isInactive ? styles.inactive : ""
-						}`}
-						disabled={isActive || isInactive || disabled}
-						key={key}>
-						{key}
-					</button>
-				);
-			})}
-		</KeyContainer>
-        <p className={`${styles.enterMsg}`}>{"Press Enter or Refresh Web Page To Generate a New Word"}</p>
+				{keyboardOptions.map((key) => {
+					const isActive = userLetter.includes(key);
+					const isInactive = inactiveLetters.includes(key);
+					return (
+						<button
+							onClick={() => addGuessedLetter(key)}
+							className={`${styles.btn} ${isActive ? styles.active : ""} ${
+								isInactive ? styles.inactive : ""
+							}`}
+							disabled={isActive || isInactive || disabled}
+							key={key}>
+							{key}
+						</button>
+					);
+				})}
+			</KeyContainer>
+			<p className={`${styles.enterMsg}`}>
+				{"Press Enter or Refresh Web Page To Generate a New Word"}
+			</p>
 		</>
 	);
 };

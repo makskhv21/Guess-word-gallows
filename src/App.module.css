@@ -1,0 +1,120 @@
+/** Background Image **/
+body {
+	background-image: url(background.png);
+	background-size: cover;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/** Keyboard Buttons **/
+.btn {
+	width: 100%;
+	border: 3px solid black;
+	background: #ffffff;
+	aspect-ratio: 1 / 1;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	padding: 0.5rem;
+	font-weight: bold;
+	cursor: pointer;
+	color: black;
+}
+
+.btn:hover:not(:disabled),
+.btn:focus:not(:disabled) {
+	background-color: #1180ff;
+	color: #ffffff;
+}
+
+.active {
+	background-color: green;
+	color: #ffffff;
+}
+
+.inactive {
+	background-color: red;
+	color: white;
+	opacity: 0.4;
+}
+
+@media (max-height: 780px) {
+	.btn {
+		aspect-ratio: 2 / 1;
+		font-size: 1.5rem;
+	}
+}
+
+/** Message to Press Enter **/
+.enterMsg {
+	background: #ffffff;
+	text-align: center;
+	margin: 5px 0;
+}
+
+/** Modal Button **/
+.modal {
+	width: 45px;
+	height: 45px;
+	color: #ffffff;
+	margin: 10px 0 0 10px;
+	font-weight: bold;
+	font-size: 1.3em;
+	border-radius: 50%;
+	align-self: flex-start;
+	background-color: #4983ff;
+	border: 3px solid rgb(19, 14, 156);
+}
+
+.modal:hover {
+	cursor: pointer;
+	border: 3px solid darkgreen;
+	background-color: rgb(0, 152, 0);
+}
+
+/** Modal Content **/
+.modalBackground {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(90, 255, 112, 0.5);
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+}
+
+.modalContainer {
+	padding: 25px;
+	display: flex;
+	width: 500px;
+	height: 500px;
+	border-radius: 15px;
+	flex-direction: column;
+	background-color: #ffffff;
+	box-shadow: rgba(0, 0, 0, 0.35);
+	border: 5px solid darkgreen;
+}
+
+.modalTitle {
+	font-family: "Shantell Sans", cursive;
+	text-align: center;
+}
+
+.modalCloseBtn {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.modalCloseX {
+	color: #ffffff;
+	border-radius: 5px;
+	background-color: #ff2222;
+	border: 1px solid rgb(119, 3, 3);
+	cursor: pointer;
+}
+
+.modalBody {
+	font-family: "Roboto", sans-serif;
+	text-align: center;
+	font-size: 1.3rem;
+}

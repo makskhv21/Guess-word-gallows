@@ -6,6 +6,7 @@ import TopMessage from "./winLose"
 import WordDisplay from "./WordDisplay";
 import Keyboard, { KeyboardParent } from "./Keyboard";
 import styled from "styled-components";
+import Modal from "./Modal";
 
 function getWord() {
 	return mysteryWord[Math.floor(Math.random() * mysteryWord.length)];
@@ -65,21 +66,24 @@ function App() {
 	});
 
 	const WinLose = styled.h1`
+    font-family: "Shantell Sans", cursive;
 		font-size: "2rem";
 		text-align: center;
+    margin: 0;
 	`;
 
 	const TopMessage = () => {
 		return (
 			<WinLose>
-				{userWon && "Winner!"}
-				{userLost && "Lost!"}
+				{userWon && "✨You Found a Missing Fruit✨"}
+				{userLost && "Better Luck Next Time 😔"}
 			</WinLose>
 		);
 	};
 
 	return (
 		<div>
+      <Modal />
 			<Container>
 				<TopMessage />
 				<Drawing userGuesses={incorrectAnswers.length} />
