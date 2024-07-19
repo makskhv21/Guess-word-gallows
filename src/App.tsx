@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {Container} from "./container";
 import Drawing from "./Drawing";
 import { foods } from "./foods";
@@ -17,12 +17,35 @@ function App() {
     letter => !favFood.includes(letter)
   );
 
+  const addGuessedLetter = useCallback(
+    (letter: string) => {
+    if(guessedLetters.includes(letter)) return;
+
+    setGuessedLetters(currentLetters => [...currentLetters, letter])
+  }, 
+  [guessedLetters] 
+  )
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const key = e.key;
+      if(!key.match(/^[a-z]$/)) return;
+
+      e.preventDefault();
+      addGuessedLetter(key);
+   }
+   document.addEventListener("keypress", handler)
+   return () => {
+    document.removeEventListener("keypress", handler)
+   }
+  }, [guessedLetters])
+
   return (
     <div>
       <Container>
         <TopMessage />
         <Drawing userGuesses={incorrectAnswers.length} />
-        <WordDisplay guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
+        <WordDisplay guessedLetters={guessedLetters} favFood={favFood} />
         <KeyboardParent>
           <Keyboard />
         </KeyboardParent>

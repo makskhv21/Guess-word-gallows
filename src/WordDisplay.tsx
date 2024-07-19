@@ -11,13 +11,12 @@ const Word = styled.div`
 
 type WordDisplayProps = {
     guessedLetters: string[];
-    wordToGuess: string;
+    favFood: string;
 }
 
-const WordDisplay = ({ guessedLetters, wordToGuess }: WordDisplayProps) => {    
-    return(
+const WordDisplay = ({ guessedLetters, favFood }: WordDisplayProps) => {    return(
         <Word>
-            {wordToGuess.split("").map((letter, index) => (
+            {favFood.split("").map((letter, index) => (
                 <span style={{ borderBottom: ".1em solid black"}} key={index}>
                     <span style={{visibility: guessedLetters.includes(letter) ? "visible" : "hidden"}}>{letter}
                     </span>
