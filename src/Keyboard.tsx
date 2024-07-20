@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import styles from "./App.module.css";
+import styles from "./style/App.module.css";
 
 const keyboardOptions = [
 	"a",
@@ -77,7 +77,7 @@ const Keyboard = ({
 				})}
 			</KeyContainer>
 			<p className={`${styles.enterMsg}`}>
-				{"Press Enter or Refresh Web Page To Generate a New Word"}
+				{"Press Enter or refresh the page to get a new word"}
 			</p>
 		</>
 	);

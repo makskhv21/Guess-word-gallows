@@ -1,4 +1,4 @@
-import styles from "./App.module.css";
+import styles from "./style/App.module.css";
 
 const ModalBody = ({ closeModal }: {closeModal: any}) => {	
     return (
@@ -17,19 +17,14 @@ const ModalBody = ({ closeModal }: {closeModal: any}) => {
 				</div>
 				<div className={`${styles.modalBody}`}>
 					<p>
-						We're excited to announce this years Fruit Harvest Festival is
-						taking place this month! The town square is being prepped with
-						decorations and individual booths so everyone can showcase their
-						home grown fruit.
-						<i> Unfortunately</i>, the recent winds caused the signs to fly off
-						every booth and now we can't figure out which fruit is which!
+						We’re delighted to announce that this year’s 
+						Fruit Harvest Festival is happening this month! 
+						The town square is being decorated and individual 
+						booths are being set up for everyone to display their homegrown fruits.
+						Sadly, the recent winds blew the signs off every booth, leaving us unable 
+						to identify the fruits. Can you help us solve this puzzle and ensure the festival's success?
 					</p>
-					<p>This is where we need your help!</p>
-					<p>
-						Can you help solve as many mystery fruits as you can so we can have
-						a successful Fruit Harvest Festival? The town is counting on you!
-					</p>
-					<p>🥝 🥕 🥥 🥒 🥑 🍍 🥭 🫐 🍎 🍐 🍊 🍋 🍌 🍉 🍇 🍓</p>
+					<p>🫐 🍎 🥝 🥕 🍍 🍋 🍌 🍉 🥭 🍐 🍊 🍇 🍓 🥥 🥒 🥑</p>
 				</div>
 			</div>
 		</div>

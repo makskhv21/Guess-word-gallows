@@ -3,7 +3,6 @@ import styled from "styled-components";
 const DrawingContainer = styled.div`
     position: relative;
 `;
-
 const DrawingBase = styled.div`
     height: 10px;
     width: 250px;
@@ -12,19 +11,18 @@ const DrawingBase = styled.div`
 		height: 280px;
 	}
 `;
-
 const DrawingCenter = styled.div`
     height: 400px;
     width: 10px;
     background: black;
     margin-left: 120px;
-`
+`;
 const DrawingArm = styled.div`
     height: 10px;
     width: 200px;
     background: black;
     margin-left: 120px;
-`
+`;
 const DrawingHook = styled.div`
     height: 50px;
     width: 10px;
@@ -32,7 +30,7 @@ const DrawingHook = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-`
+`;
 const Head = styled.div`
     width: 50px;
     height: 50px;
@@ -46,7 +44,7 @@ const Head = styled.div`
 		width: 35px;
 		right: -23px;
 	}
-`
+`;
 const Body = styled.div`
     width: 10px;
     height: 100px;
@@ -58,8 +56,7 @@ const Body = styled.div`
 		height: 80px;
 		top: 105px;
 	}
-`
-
+`;
 const LeftArm = styled.div`
     width: 100px;
     height: 10px;
@@ -73,8 +70,7 @@ const LeftArm = styled.div`
 		width: 80px;
 		top: 130px;
 	}
-`
-
+`;
 const RightArm = styled.div`
     width: 100px;
     height: 10px;
@@ -89,7 +85,7 @@ const RightArm = styled.div`
 		top: 130px;
 		right: -80px;
 	}
-`
+`;
 const LeftLeg = styled.div`
     width: 100px;
     height: 10px;
@@ -103,7 +99,7 @@ const LeftLeg = styled.div`
 		width: 80px;
 		top: 170px;
 	}
-`
+`;
 const RightLeg = styled.div`
     width: 100px;
     height: 10px;
@@ -118,7 +114,7 @@ const RightLeg = styled.div`
 		top: 170px;
 		right: -70px;
 	}
-`
+`;
 
 type DrawingProps = {
     userGuesses: number;

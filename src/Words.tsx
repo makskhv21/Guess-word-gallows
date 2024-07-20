@@ -1,4 +1,4 @@
-export const mysteryWord = [
+export const secretWord = [
 	"apples",
 	"apricots",
 	"carrots",

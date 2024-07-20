@@ -10,7 +10,7 @@ const Word = styled.div`
     @media (max-height: 780px) {
 		font-size: 4rem;
 	}
-`
+`;
 
 type WordDisplayProps = {
 	guessedLetters: string[];

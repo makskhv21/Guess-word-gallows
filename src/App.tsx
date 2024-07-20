@@ -1,19 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
-import {Container} from "./container";
+import { Container } from "./style/container";
+import { secretWord } from "./Words";
 import Drawing from "./Drawing";
-import { mysteryWord } from "./Words";
-import TopMessage from "./winLose"
 import WordDisplay from "./WordDisplay";
 import Keyboard, { KeyboardParent } from "./Keyboard";
 import styled from "styled-components";
 import Modal from "./Modal";
 
-function getWord() {
-	return mysteryWord[Math.floor(Math.random() * mysteryWord.length)];
+function generateWord() {
+	return secretWord[Math.floor(Math.random() * secretWord.length)];
 }
 
 function App() {
-  const [wordToGuess, setWordToGuess] = useState(getWord);
+  	const [wordToGuess, setWordToGuess] = useState(generateWord);
 
 	const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
@@ -21,7 +20,7 @@ function App() {
 		(letter) => !wordToGuess.includes(letter)
 	);
 
-	//* Win Conditions
+	// Win Conditions
 	const userWon = wordToGuess
 		.split("")
 		.every((letter) => guessedLetters.includes(letter));
@@ -32,8 +31,7 @@ function App() {
 			if (guessedLetters.includes(letter) || userWon || userLost) return;
 
 			setGuessedLetters((currentLetters) => [...currentLetters, letter]);
-		},
-		[guessedLetters, userWon, userLost]
+		}, [guessedLetters, userWon, userLost]
 	);
 
 	useEffect(() => {
@@ -57,7 +55,7 @@ function App() {
 
 			e.preventDefault();
 			setGuessedLetters([]);
-			setWordToGuess(getWord());
+			setWordToGuess(generateWord());
 		};
 		document.addEventListener("keypress", handler);
 		return () => {
@@ -66,24 +64,24 @@ function App() {
 	});
 
 	const WinLose = styled.h1`
-    font-family: "Shantell Sans", cursive;
+    	font-family: "Shantell Sans", cursive;
 		font-size: "2rem";
 		text-align: center;
-    margin: 0;
+    	margin: 0;
 	`;
 
 	const TopMessage = () => {
 		return (
 			<WinLose>
-				{userWon && "✨You Found a Missing Fruit✨"}
-				{userLost && "Better Luck Next Time 😔"}
+				{userWon && "You Discovered a Hidden Fruit✨"}
+				{userLost && "Maybe Next Time 😔"}
 			</WinLose>
 		);
 	};
 
 	return (
-		<div>
-      <Modal />
+		<>
+      		<Modal />
 			<Container>
 				<TopMessage />
 				<Drawing userGuesses={incorrectAnswers.length} />
@@ -103,8 +101,8 @@ function App() {
 					/>
 				</KeyboardParent>
 			</Container>
-		</div>
+		</>
 	);
-}
+};
 
-export default App
+export default App;
