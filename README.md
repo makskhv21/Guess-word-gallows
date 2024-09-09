@@ -4,9 +4,9 @@ Guess-word-gallows is a React (TypeScript) app that revives the classic word-gue
 
 ## Built with
 
-- [React](https://reactjs.org/);
-- [TypeScript](https://www.typescriptlang.org/);
-- [Styled Components](https://styled-components.com/);
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled Components](https://styled-components.com/)
 
 ## How to use the program?
 
